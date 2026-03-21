@@ -1,0 +1,575 @@
+Detailed overview of the scoring criteria
+
+The framework is designed to evaluate CSR outputs using a shared core scoring structure plus section-specific criteria. The reason for this design is that some quality dimensions apply to nearly all CSR content, while others depend heavily on the purpose of the specific section.
+
+1. Shared core scoring dimensions
+
+These are the criteria that form the backbone of the framework across section types.
+
+A. Source faithfulness / factual accuracy
+
+This is the most important criterion in most cases.
+
+It assesses whether the generated output accurately reflects the source material and avoids introducing unsupported content.
+
+This includes checking for:
+
+factual correctness
+
+accurate numerical representation
+
+accurate study design or results characterization
+
+absence of fabricated or exaggerated statements
+
+avoidance of stronger claims than the source supports
+
+
+This dimension should carry the most weight in most sections because fluent writing is not useful if it is wrong.
+
+Typical questions:
+
+Is the statement explicitly or clearly supported by the source?
+
+Has the model strengthened or generalized the source inappropriately?
+
+Has the output introduced claims not present in the source?
+
+
+A low score here means the output is unsafe to rely on even if well written.
+
+B. Completeness relative to section purpose
+
+This does not mean “include everything possible.” It means “include what should reasonably be there for that section.”
+
+This criterion assesses whether the output contains the important content needed to fulfill the intended role of the section.
+
+It should be judged relative to:
+
+the function of the section
+
+the requested detail level
+
+whether the omitted content is major, moderate, or minor
+
+whether the omitted content is actually applicable
+
+
+For example:
+
+a lean Study Design section may not need many details
+
+a TLF summary may need very specific table findings
+
+an efficacy section may need key endpoint results and hierarchy context
+
+
+Typical questions:
+
+Did the output omit any content that materially changes the meaning?
+
+Is the omission acceptable given the section’s purpose?
+
+Was the output too sparse to perform its intended function?
+
+
+This dimension should not reward unnecessary detail.
+
+C. Internal consistency
+
+This evaluates whether the output is consistent with itself and with any structured inputs or related source representations.
+
+It checks for contradictions such as:
+
+inconsistent study design descriptions
+
+conflicting treatment group language
+
+inconsistent numbers or terminology
+
+mismatch between narrative claims and structured inputs
+
+
+Typical questions:
+
+Does one part of the text contradict another?
+
+Does the output remain consistent across sentences and claims?
+
+If structured inputs are provided, is the output aligned with them unless the source clearly says otherwise?
+
+
+This is especially important in sections with multiple linked facts, such as TLF summaries, efficacy summaries, and safety descriptions.
+
+D. Regulatory writing quality
+
+This assesses whether the output is written in a manner appropriate for CSR use.
+
+It includes:
+
+formal tone
+
+precision
+
+clarity
+
+appropriate level of interpretive restraint
+
+structure and readability
+
+appropriate scientific/regulatory wording
+
+
+It does not override factual weakness. A polished but unsupported output should still score poorly overall.
+
+Typical questions:
+
+Is the wording formal and neutral?
+
+Is the language precise and controlled?
+
+Does the output avoid conversational or speculative phrasing?
+
+Is the structure usable for CSR drafting or review?
+
+
+This criterion is important, but should usually be weighted below factual accuracy.
+
+E. Section-purpose fit
+
+This is a key criterion because different CSR sections are meant to do different things.
+
+This dimension assesses whether the output actually functions appropriately for its intended section.
+
+For example:
+
+a Study Design section should orient the reader, not reproduce the protocol
+
+a TLF summary should interpret the table accurately without overclaiming
+
+a PK/PD section should summarize findings without speculative mechanistic claims
+
+a safety section should characterize safety findings with disciplined terminology
+
+
+Typical questions:
+
+Does the output fulfill the real purpose of the section?
+
+Is it shaped appropriately for how this section is actually used?
+
+Does it include the right type of content, not just fluent text?
+
+
+This dimension is especially useful because a text can be factually correct yet still be poorly suited to the section it is meant to serve.
+
+F. Detail-level fit
+
+This evaluates whether the density of information is appropriate.
+
+Not all outputs should be equally detailed. Depending on the use case, the text may need to be:
+
+lean
+
+abbreviated
+
+standard
+
+expanded
+
+
+This criterion checks whether the output is too sparse, too detailed, or appropriately balanced.
+
+Typical questions:
+
+Is the text too compressed to be useful?
+
+Is it more detailed than the section convention requires?
+
+Does it align with precedent or the requested level?
+
+
+This criterion becomes especially important in sections like Study Design, where you identified that internal practice may favor very lean summaries.
+
+
+---
+
+2. Support categories used in scoring
+
+The framework also depends on shared evidentiary categories, because not all statements are equally grounded.
+
+Supported
+
+A statement is supported when it is clearly grounded in the source.
+
+This means the evaluator can reasonably conclude:
+
+the claim is explicitly stated, or
+
+the claim is directly and clearly supported without meaningful ambiguity
+
+
+Supported content should not be penalized on faithfulness grounds.
+
+Weakly supported
+
+A statement is weakly supported when it is plausible from the source, but not clearly explicit.
+
+This is important because many outputs do not fully fabricate content; instead, they subtly overstate what the source implies.
+
+Weakly supported content is not necessarily as severe as unsupported content, but it should often still be flagged, especially if presented as certain.
+
+Typical examples:
+
+stronger causal language than the source supports
+
+implied structural descriptions treated as definite
+
+interpretation presented more confidently than warranted
+
+
+Unsupported
+
+A statement is unsupported when it is:
+
+not grounded in the source
+
+materially stronger than the source supports
+
+contradictory to the source
+
+invented
+
+
+Unsupported content is usually one of the most serious scoring problems and should strongly lower source faithfulness.
+
+
+---
+
+3. Severity categories used in scoring
+
+The scoring framework should not treat all issues equally. It uses severity categories.
+
+Major
+
+A major issue:
+
+changes the reader’s understanding
+
+creates meaningful factual, scientific, or regulatory risk
+
+makes the output unsafe to rely on
+
+
+Examples:
+
+incorrect primary endpoint result
+
+incorrect study design characterization
+
+misleading safety conclusion
+
+wrong denominator in a TLF summary
+
+unsupported treatment-effect conclusion
+
+
+Major issues should strongly affect scores and may trigger critical failure.
+
+Moderate
+
+A moderate issue:
+
+does not fully invalidate the text
+
+but does create a meaningful weakness that should be corrected
+
+
+Examples:
+
+omission of an important but not section-defining point
+
+overstatement of a non-primary finding
+
+phrasing that could mislead if left unchanged
+
+
+Moderate issues should meaningfully lower the relevant dimension score.
+
+Minor
+
+A minor issue:
+
+has limited impact
+
+does not materially change the meaning
+
+usually represents a polishing or refinement need rather than a reliability problem
+
+
+Examples:
+
+mild awkwardness
+
+low-risk wording drift
+
+omission of a low-value detail
+
+
+Minor issues should not be ignored, but should not dominate the overall assessment.
+
+
+---
+
+4. Critical failure concept
+
+A major feature of the framework is the use of critical failure.
+
+This exists to prevent a superficially strong output from receiving a good overall assessment when it contains a serious problem.
+
+A critical failure should be triggered when the output contains or misses something that materially changes meaning or creates meaningful risk.
+
+Examples of critical failure:
+
+fabricated claim
+
+contradiction with source
+
+major omission that changes interpretation
+
+materially misleading treatment-effect statement
+
+incorrect study design description
+
+incorrect safety characterization
+
+incorrect numerical summary that changes the conclusion
+
+
+When critical failure is present:
+
+the verdict should reflect that seriousness
+
+the overall score should not look deceptively acceptable
+
+the interpretation should explain the failure clearly
+
+
+This is one of the most important safeguards in the framework.
+
+
+---
+
+5. How overall scoring works
+
+Each shared dimension is scored on a 0–5 scale.
+
+A default weighting can be used, such as:
+
+source faithfulness: 30%
+
+completeness: 20%
+
+internal consistency: 15%
+
+regulatory writing quality: 15%
+
+section-purpose fit: 10%
+
+detail-level fit: 10%
+
+
+This is only a default. Different sections may shift the emphasis.
+
+Example interpretation of the 0–5 scale
+
+5 = excellent / fully fit for that criterion
+
+4 = strong with minor weakness
+
+3 = acceptable but with meaningful issues
+
+2 = weak / substantial problems
+
+1 = poor / largely unreliable for that criterion
+
+0 = unacceptable / failed that criterion
+
+
+The weighted overall score gives a summary signal, but should not override critical failure.
+
+
+---
+
+6. Section-specific criteria
+
+In addition to the shared dimensions, each section should have extra criteria tailored to its function.
+
+Study Design
+
+For lean or abbreviated Study Design sections, section-specific criteria may include:
+
+essential design element coverage
+
+brevity and non-redundancy
+
+cross-reference appropriateness
+
+precedent style alignment
+
+
+This reflects the fact that, in your environment, Study Design may need to be concise and defer detail to the protocol/CSP.
+
+TLF summary
+
+Key section-specific criteria may include:
+
+table fidelity
+
+denominator and population correctness
+
+numerical interpretation accuracy
+
+overinterpretation control
+
+
+This section is highly sensitive to numerical misrepresentation and inappropriate inference.
+
+PK/PD
+
+Useful additional criteria may include:
+
+parameter interpretation accuracy
+
+trend characterization
+
+exposure-response restraint
+
+mechanistic inference control
+
+
+The key risk here is often not obvious fabrication, but subtle overinterpretation.
+
+Efficacy
+
+Useful additional criteria may include:
+
+endpoint interpretation accuracy
+
+hierarchy and priority handling
+
+statistical versus descriptive discipline
+
+treatment-effect claim control
+
+
+This helps prevent outputs from overstating conclusions or mishandling endpoint hierarchy.
+
+Safety
+
+Useful additional criteria may include:
+
+event characterization accuracy
+
+incidence and comparison accuracy
+
+causality and severity restraint
+
+risk-signal framing
+
+
+This section especially needs disciplined language because slight wording shifts can change how safety is perceived.
+
+
+---
+
+7. Recommended output of the evaluation
+
+The framework is designed so the evaluator does more than assign a score.
+
+A useful evaluation should also identify:
+
+unsupported content
+
+weakly supported content
+
+missing content
+
+section-specific findings
+
+strengths
+
+recommended revisions
+
+critical failure status
+
+overall verdict
+
+
+This makes the rubric useful for both:
+
+comparing outputs
+
+revising outputs
+
+
+So it functions as both a scoring tool and a review aid.
+
+
+---
+
+8. Why this approach is useful
+
+This scoring framework is meant to avoid both extremes:
+
+a single overly generic rubric that says very little
+
+completely separate unrelated rubrics that are hard to compare
+
+
+By using:
+
+shared core dimensions
+
+shared support and severity definitions
+
+shared critical failure logic
+
+section-specific add-ons
+
+
+the framework stays:
+
+consistent
+
+interpretable
+
+flexible
+
+scalable
+
+
+
+---
+
+Practical summary
+
+The scoring criteria are built around a simple idea:
+
+Every CSR output should be evaluated for whether it is:
+
+accurate
+
+sufficiently complete for purpose
+
+internally consistent
+
+appropriately written
+
+appropriate for the section’s function
+
+appropriately detailed
+
+
+Then, depending on the section, additional criteria are added to capture what matters specifically for that section.
+
