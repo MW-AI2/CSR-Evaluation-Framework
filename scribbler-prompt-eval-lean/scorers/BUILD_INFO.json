@@ -1,0 +1,25 @@
+{
+  "base_template_version": "base-template-v1.0 (bc2b58dd7b37)",
+  "base_template_sha256": "bc2b58dd7b37ba83d189e85f9edfda18c9ef55e167c3474e3a1731974dd1e9ce",
+  "scorer_version": "v1.1",
+  "active_archetypes": 10,
+  "active_prompts": 34,
+  "shelved_archetypes": [
+    "scorer_11_translation",
+    "scorer_12_strobe"
+  ],
+  "generated": "2026-10-12",
+  "consolidated_files": {
+    "scorer_01_summarization_consolidated.md": "a14b721e92e94a06",
+    "scorer_02_extraction_consolidated.md": "971f232d5d81b7fb",
+    "scorer_03_definition_consolidated.md": "1f7cb89081884b25",
+    "scorer_04_section_consolidated.md": "55c452922d0d5d0f",
+    "scorer_05_editing_consolidated.md": "6ef813d8f15fefcf",
+    "scorer_06_consistency_consolidated.md": "da35c12ccf67dfef",
+    "scorer_07_formatting_consolidated.md": "7d4f8cb92a85d544",
+    "scorer_08_data_consolidated.md": "99c2ae70ea3051e7",
+    "scorer_09_content_consolidated.md": "8a0cea9f86817155",
+    "scorer_10_comment_consolidated.md": "d319175de26d6d3d"
+  },
+  "note": "GENERATED. Do not hand-edit dist/. Regenerate with scripts/build_scorers.py."
+}
